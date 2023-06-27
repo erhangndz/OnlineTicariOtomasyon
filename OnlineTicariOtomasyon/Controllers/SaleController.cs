@@ -22,6 +22,7 @@ namespace OnlineTicariOtomasyon.Controllers
 
         public IActionResult Index()
         {
+
             var values= _transactionService.TGetAll();
             return View(values);
         }
@@ -60,6 +61,73 @@ namespace OnlineTicariOtomasyon.Controllers
             p.Date= DateTime.Now;
             _transactionService.TInsert(p);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateSale(int id)
+        {
+            List<SelectListItem> product = (from x in _productService.TGetList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.ProductName,
+                                                Value = x.ProductID.ToString(),
+                                            }).ToList();
+            ViewBag.product = product;
+
+            List<SelectListItem> staff = (from x in _staffService.TGetList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.Name + " " + x.Surname,
+                                              Value = x.StaffID.ToString(),
+                                          }).ToList();
+            ViewBag.staff = staff;
+
+            List<SelectListItem> current = (from x in _currentService.TGetList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.Name + " " + x.Surname,
+                                                Value = x.CurrentID.ToString(),
+                                            }).ToList();
+            ViewBag.current = current;
+            var values = _transactionService.TGetByID(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateSale(Transaction p)
+        {
+            List<SelectListItem> product = (from x in _productService.TGetList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.ProductName,
+                                                Value = x.ProductID.ToString(),
+                                            }).ToList();
+            ViewBag.product = product;
+
+            List<SelectListItem> staff = (from x in _staffService.TGetList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.Name + " " + x.Surname,
+                                              Value = x.StaffID.ToString(),
+                                          }).ToList();
+            ViewBag.staff = staff;
+
+            List<SelectListItem> current = (from x in _currentService.TGetList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.Name + " " + x.Surname,
+                                                Value = x.CurrentID.ToString(),
+                                            }).ToList();
+            ViewBag.current = current;
+            p.Date= DateTime.Now;
+            _transactionService.TUpdate(p);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult SaleDetails(int id)
+        {
+            var values = _transactionService.TGetAll().Where(x=>x.TransactionID==id).ToList();
+            return View(values);
         }
     }
 }

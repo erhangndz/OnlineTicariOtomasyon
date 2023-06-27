@@ -1,14 +1,14 @@
 ﻿@using EntityLayer.Concrete;
 @model Transaction
 @{
-    ViewData["Title"] = "NewSale";
+    ViewData["Title"] = "UpdateSale";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3>Yeni Satış Sayfası</h3>
+<h3> Satış İşlemi Düzenleme Sayfası</h3>
 <br />
 <form method="post">
-
+    @Html.HiddenFor(x=>x.TransactionID)
     <label>Ürün </label>
     @Html.DropDownListFor(x=>x.ProductID,(List<SelectListItem>)ViewBag.product,new {@class="form-control"})
     <br />
@@ -27,9 +27,9 @@
     <label>Toplam</label>
     @Html.TextBoxFor(x=>x.TotalPrice,new {@class="form-control"})
     <br />
-   
+
     <br />
-    <button class="btn btn-dark">Satış Yap</button>
+    <button class="btn btn-dark">Kaydet</button>
 
 </form>
 

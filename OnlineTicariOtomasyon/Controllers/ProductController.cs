@@ -97,6 +97,12 @@ namespace OnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult ProductList()
+        {
+           var values= _productService.TGetListwithCategories();
+            return View(values);
+        }
+
 
     }
 }
