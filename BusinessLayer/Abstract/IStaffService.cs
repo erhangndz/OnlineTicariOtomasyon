@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IStaffService : IGenericService<Staff>
     {
+        List<Staff> TGetListwithDepartment();
     }
 }

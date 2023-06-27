@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete;
+@model List<Transaction>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h3 class="container">Satışlar</h3>
+<br />
+
+
+
+<table class="table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Ürün</th>
+        <th>Cari Ad Soyad </th>
+        <th>Personel Ad Soyad </th>
+        <th>Adet  </th>
+        <th>Fiyat  </th>
+        <th>Toplam  </th>
+        <th>Tarih  </th>
+        <th>Düzenle  </th>
+        <th>Detaylar  </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <th>@count</th>
+            <th>@item.Product.ProductName</th>
+            <td> @item.Current.Name  @item.Current.Surname</td>
+            <td> @item.Staff.Name  @item.Staff.Surname</td>
+            <td>@item.Number</td>
+            <td>@item.Price</td>
+            <td>@item.TotalPrice</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td><a href="#" class="btn btn-dark">Düzenle</a></td>
+            <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/Sale/NewSale/" class="btn btn-dark">Yeni Satış Yap</a>
+
+

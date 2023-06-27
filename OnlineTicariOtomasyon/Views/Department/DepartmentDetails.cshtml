@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete;
+@model List<Staff>
+@{
+    ViewData["Title"] = "DepartmentDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+
+}
+
+
+<h3 class="container">Departman Detayları</h3>
+<br />
+<ol class="breadcrumb mb-4">
+    <h3 class="breadcrumb-item active container">@ViewBag.dpt </h3>
+</ol>
+
+
+<table class="table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Personel Ad Soyad</th>
+        <th>Satışlar  </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <th>@count</th>
+            <td><img src="@item.Image" style="width:75px;height:75px">  @item.Name  @item.Surname</td>
+            <td><a href="/Department/SaleDetails/@item.StaffID" class="btn btn-dark">Satışlar</a></td>
+       
+        </tr>
+    }
+</table>

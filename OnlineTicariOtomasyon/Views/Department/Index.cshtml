@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete;
+@model List<Department>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+   
+    var status = "";
+    var buttonname = "";
+    var color = "";
+    var rowcolor = "";
+    var statuscolor = "";
+}
+
+<h3 class="container">Departmanlar</h3>
+
+<br />
+<table class="table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Departman Adı</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+   
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        if (item.Status == true) { status = "Aktif"; buttonname = "Pasif Yap"; color = "secondary"; statuscolor = "success"; rowcolor = ""; } else { status = "Pasif"; buttonname = "Aktif Yap"; color = "dark"; rowcolor = "background-color:gray"; statuscolor = "danger"; }
+
+        <tr style="@rowcolor">
+            <th>@count</th>
+            <td>@item.DepartmentName</td>
+            <td> <span class="badge badge-@statuscolor">  @status</span> </td>
+            <td><a href="/Department/DeleteDepartment/@item.DepartmentID" class="btn btn-@color">@buttonname</a>
+            <a href="/Department/UpdateDepartment/@item.DepartmentID" class="btn btn-dark">Düzenle</a>
+            
+            <a href="/Department/DepartmentDetails/@item.DepartmentID" class="btn btn-outline-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Department/AddDepartment/" class="btn btn-dark">Yeni Departman Ekle</a>
+
+

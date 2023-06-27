@@ -18,6 +18,8 @@ namespace BusinessLayer.Concrete
             _staffDal = staffDal;
         }
 
+        
+
         public void TDelete(Staff t)
         {
             _staffDal.Delete(t);
@@ -31,6 +33,11 @@ namespace BusinessLayer.Concrete
         public List<Staff> TGetList()
         {
             return _staffDal.GetList();
+        }
+
+        public List<Staff> TGetListwithDepartment()
+        {
+            return _staffDal.GetListwithDepartment();
         }
 
         public void TInsert(Staff t)

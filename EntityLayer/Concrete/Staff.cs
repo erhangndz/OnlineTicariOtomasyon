@@ -15,5 +15,6 @@ namespace EntityLayer.Concrete
         public List<Transaction> Transactions { get; set; }
         public int DepartmentID { get; set; }
         public Department Department { get; set; }
+        public bool Status { get; set; }
     }
 }

@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete;
+@model List<Staff>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    var buttonname = "";
+    var color = "";
+    var status = "";
+    var rowcolor = "";
+    var statuscolor = "";
+}
+
+
+
+
+<h3 class="container">Personeller</h3>
+<br />
+
+
+
+<table class="table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Personel Ad Soyad</th>
+        <th>Departman </th>
+        <th>Düzenle </th>
+        <th>Durum </th>
+        <th>İşlem </th>
+        <th>Satışlar  </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        if (item.Status == true) { status = "Aktif"; buttonname = "Pasif Yap"; color = "secondary"; statuscolor = "success"; rowcolor = ""; } else { status = "Pasif"; buttonname = "Aktif Yap"; color = "dark"; rowcolor = "background-color:gray"; statuscolor = "danger"; }
+
+
+        <tr style="@rowcolor">
+            <th>@count</th>
+            <td><img src="@item.Image" style="width:75px;height:75px">  @item.Name  @item.Surname</td>
+            <td>@item.Department.DepartmentName</td>
+            <td><a href="/Staff/UpdateStaff/@item.StaffID" class="btn btn-dark">Düzenle</a></td>
+            <td> <span class="badge badge-@statuscolor">  @status</span> </td>
+            <td>  <a href="/Staff/DeleteStaff/@item.StaffID" class="btn btn-@color">@buttonname</a></td>
+            <td><a href="/Department/SaleDetails/@item.StaffID" class="btn btn-outline-dark">Satışlar</a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/Staff/AddStaff/" class="btn btn-dark">Yeni Personel Ekle</a>

@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete;
+@model Staff
+@{
+    ViewData["Title"] = "UpdateStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3>Personel Düzenleme Sayfası</h3>
+<br />
+<form method="post">
+    @Html.HiddenFor(x=>x.StaffID)
+    <label>Personel Adı</label>
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    <p class="text-danger"> @Html.ValidationMessageFor(x=>x.Name)</p>
+    <br />
+    <label>Personel Soyadı</label>
+    @Html.TextBoxFor(x=>x.Surname,new {@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.Surname)
+    </p>
+    <br />
+    <label>Görsel</label>
+    @Html.TextBoxFor(x=>x.Image,new {@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.Image)
+    </p>
+    <br />
+    <label>Departman</label>
+    @Html.DropDownListFor(x=>x.DepartmentID,(List<SelectListItem>)ViewBag.department,new {@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.DepartmentID)
+    </p>
+    <br />
+
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>
+
+
+
+

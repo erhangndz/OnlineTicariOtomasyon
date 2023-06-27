@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IStaffDal : IGenericDal<Staff>
     {
+        List<Staff> GetListwithDepartment();
     }
 }

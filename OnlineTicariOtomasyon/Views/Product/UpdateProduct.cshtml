@@ -1,14 +1,14 @@
 ﻿@using EntityLayer.Concrete;
 @model Product
 @{
-    ViewData["Title"] = "AddProduct";
+    ViewData["Title"] = "UpdateProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3>Ürün Ekleme Sayfası</h3>
+<h3>Ürün Düzenleme Sayfası</h3>
 <br />
 <form method="post">
-
+    @Html.HiddenFor(x=>x.ProductID)
     <label>Ürün Adı</label>
     @Html.TextBoxFor(x=>x.ProductName,new {@class="form-control"})
     <br />
@@ -33,5 +33,4 @@
     <button class="btn btn-dark">Kaydet</button>
 
 </form>
-
 

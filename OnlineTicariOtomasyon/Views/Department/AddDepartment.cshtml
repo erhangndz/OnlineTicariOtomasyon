@@ -1,0 +1,19 @@
+﻿@using EntityLayer.Concrete;
+@model Department
+@{
+    ViewData["Title"] = "AddDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Departman Ekleme Sayfası</h3>
+<br />
+<form method="post">
+
+    <label>Departman Adı</label>
+    @Html.TextBoxFor(x=>x.DepartmentName,new {@class="form-control"})
+    <br />
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>
+
+

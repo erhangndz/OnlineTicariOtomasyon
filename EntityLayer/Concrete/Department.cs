@@ -11,5 +11,6 @@ namespace EntityLayer.Concrete
         public int DepartmentID { get; set; }
         public string DepartmentName { get; set; }
         public List<Staff> Staffs { get; set; }
+        public bool Status { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,21 @@ builder.Services.AddScoped<ICategoryService,CategoryManager>();
 
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<IProductService, ProductManager>();
+
+builder.Services.AddScoped<IDepartmentDal, EfDepartmentDal>();
+builder.Services.AddScoped<IDepartmentService, DepartmentManager>();
+
+builder.Services.AddScoped<IStaffDal, EfStaffDal>();
+builder.Services.AddScoped<IStaffService, StaffManager>();
+
+builder.Services.AddScoped<ITransactionDal, EfTransactionDal>();
+builder.Services.AddScoped<ITransactionService, TransactionManager>();
+
+builder.Services.AddScoped<ICurrentDal, EfCurrentDal>();
+builder.Services.AddScoped<ICurrentService, CurrentManager>();
+
+
+
 
 var app = builder.Build();
 

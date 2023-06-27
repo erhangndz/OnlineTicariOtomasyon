@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete;
+@model Transaction
+@{
+    ViewData["Title"] = "NewSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Yeni Satış Sayfası</h3>
+<br />
+<form method="post">
+
+    <label>Ürün </label>
+    @Html.DropDownListFor(x=>x.ProductID,(List<SelectListItem>)ViewBag.product,new {@class="form-control"})
+    <br />
+    <label>Cari Ad Soyad</label>
+    @Html.DropDownListFor(x=>x.CurrentID,(List<SelectListItem>)ViewBag.current,new {@class="form-control"})
+    <br />
+    <label>Personel Ad Soyad</label>
+    @Html.DropDownListFor(x=>x.StaffID,(List<SelectListItem>)ViewBag.staff,new {@class="form-control"})
+    <br />
+    <label>Adet</label>
+    @Html.TextBoxFor(x=>x.Number,new {@class="form-control"})
+    <br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x=>x.Price,new {@class="form-control"})
+    <br />
+    <label>Toplam</label>
+    @Html.TextBoxFor(x=>x.TotalPrice,new {@class="form-control"})
+    <br />
+   
+    <br />
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>
+
+
+

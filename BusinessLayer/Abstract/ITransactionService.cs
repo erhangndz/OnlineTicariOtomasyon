@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
 {
     public interface ITransactionService : IGenericService<Transaction>
     {
+        List<Transaction> TGetAll();
     }
 }

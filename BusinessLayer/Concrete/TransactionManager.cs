@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
            _transactionDal.Delete(t);
         }
 
+        public List<Transaction> TGetAll()
+        {
+           return  _transactionDal.GetAll();
+        }
+
         public Transaction TGetByID(int id)
         {
            return _transactionDal.GetByID(id);  

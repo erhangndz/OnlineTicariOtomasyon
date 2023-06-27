@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete;
+@model List<Current>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    var status = "";
+    var buttonname = "";
+    var color = "";
+    var rowcolor = "";
+    var statuscolor = "";
+}
+
+
+
+
+<h3 class="container">Cariler</h3>
+
+<br />
+<table class="table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Cari Ad Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Durum</th>
+        <th>İşlem</th>
+        <th>Düzenle</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        if (item.Status == true) { status = "Aktif"; buttonname = "Pasif Yap"; color = "secondary"; statuscolor = "success"; rowcolor = ""; } else { status = "Pasif"; buttonname = "Aktif Yap"; color = "dark"; rowcolor = "background-color:gray"; statuscolor = "danger"; }
+
+        <tr style="@rowcolor">
+            <th>@count</th>
+            <td>@item.Name  @item.Surname</td>
+            <td>@item.City</td>
+            <td>@item.Mail</td>
+            <td> <span class="badge badge-@statuscolor">  @status</span> </td>
+            <td><a href="/Current/DeleteCurrent/@item.CurrentID" class="btn btn-@color">@buttonname</a></td>
+            <td><a href="/Current/UpdateCurrent/@item.CurrentID" class="btn btn-dark">Düzenle</a></td>
+            <td><a href="/Current/CurrentDetails/@item.CurrentID" class="btn btn-outline-dark">Satış Geçmişi</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Current/AddCurrent/" class="btn btn-dark">Yeni Cari Ekle</a>
+
