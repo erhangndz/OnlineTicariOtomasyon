@@ -28,7 +28,11 @@ builder.Services.AddScoped<ITransactionService, TransactionManager>();
 builder.Services.AddScoped<ICurrentDal, EfCurrentDal>();
 builder.Services.AddScoped<ICurrentService, CurrentManager>();
 
+builder.Services.AddScoped<IBillDal, EfBillDal>();
+builder.Services.AddScoped<IBillService, BillManager>();
 
+builder.Services.AddScoped<IBillItemDal, EfBillItemDal>();
+builder.Services.AddScoped<IBillItemService, BillItemManager>();
 
 
 var app = builder.Build();

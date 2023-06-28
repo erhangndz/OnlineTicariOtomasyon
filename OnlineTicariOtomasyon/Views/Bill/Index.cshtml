@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete;
+@model List<Bill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int count = 0;
+}
+
+<h3 class="container">Faturalar</h3>
+
+<br />
+<table class="table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Seri No</th>
+        <th>Sıra No</th>
+        <th>Vergi Dairesi</th>
+        <th>Tarih</th>
+        <th>Toplam</th>
+        <th>Teslim Eden</th>
+        <th>Teslim Alan</th>
+        <th>İşlemler</th>
+   
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+      
+
+        <tr >
+            <th>@count</th>
+            <td>@item.SerialNumber</td>
+            <td>@item.OrderNumber</td>
+            <td>@item.TaxOffice</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td>@item.Total</td>
+            <td>@item.Seller</td>
+            <td>@item.Buyer</td>
+           
+            <td>
+
+                <a href="/Bill/UpdateBill/@item.BillID" class="btn btn-dark">Düzenle</a>
+
+                <a href="/Bill/BillDetails/@item.BillID" class="btn btn-outline-dark">Detaylar</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Bill/AddBill/" class="btn btn-dark">Yeni Fatura Girişi</a>
+

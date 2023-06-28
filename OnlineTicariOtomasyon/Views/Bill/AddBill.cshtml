@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete;
+@model Bill
+@{
+    ViewData["Title"] = "AddBill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3>Yeni Fatura Girişi</h3>
+<br />
+<form method="post">
+
+    <label>Fatura Seri No</label>
+    @Html.TextBoxFor(x=>x.SerialNumber,new {@class="form-control"})
+    <br />
+    <label>Fatura Sıra No</label>
+    @Html.TextBoxFor(x=>x.OrderNumber,new {@class="form-control"})
+    <br />
+    <label> Tarih </label>
+    <br />
+    <input type="date"  asp-for="Date" />
+    <br /><br />
+    <label>Vergi Dairesi</label>
+    @Html.TextBoxFor(x=>x.TaxOffice,new {@class="form-control"})
+    <br />
+    <label>Teslim Eden</label>
+    @Html.TextBoxFor(x=>x.Seller,new {@class="form-control"})
+    <br />
+    <label>Teslim Alan</label>
+    @Html.TextBoxFor(x=>x.Buyer,new {@class="form-control"})
+    <br />
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>

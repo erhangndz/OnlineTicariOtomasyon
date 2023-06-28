@@ -103,6 +103,12 @@ namespace OnlineTicariOtomasyon.Controllers
             return View(values);
         }
 
+        public IActionResult ProductDetails(int id)
+        {
+            var values = _productService.TGetByID(id);
+            return View(values);
+        }
+
 
     }
 }

@@ -1,0 +1,176 @@
+﻿@using EntityLayer.Concrete;
+@model Product
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Ürün Detayları</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body >
+    <!-- Site wrapper -->
+    
+ 
+    
+
+        <!-- Content Wrapper. Contains page content -->
+  
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Ürün Detayları</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/Product/Index/">Ürünler</a></li>
+                                <li class="breadcrumb-item active">Ürün Detayları</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+                <!-- Default box -->
+                <div class="card card-solid">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                @Html.HiddenFor(x=>x.ProductID)
+                                <h3 class="d-inline-block d-sm-none">@Html.DisplayFor(x=>x.ProductName) </h3>
+                                <h3 class="d-inline-block d-sm-none">@Html.DisplayFor(x=>x.Brand) </h3>
+                                <div class="col-12">
+                                    <img src="@Html.DisplayFor(x=>x.Image)" class="product-image" alt="Product Image">
+                                </div>
+                                <div class="col-12 product-image-thumbs">
+                            <div class="product-image-thumb active"><img src="@Html.DisplayFor(x=>x.Image)" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="@Html.DisplayFor(x=>x.Image)" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="@Html.DisplayFor(x=>x.Image)" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="@Html.DisplayFor(x=>x.Image)" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="@Html.DisplayFor(x=>x.Image)" alt="Product Image"></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <h4 class="my-3">@Html.DisplayFor(x=>x.Brand)</h4>
+                                <h3 class="my-3">@Html.DisplayFor(x=>x.ProductName)</h3>
+
+                        <p>Stok Sayısı: @Html.DisplayFor(x=>x.Stock)</p>
+
+                                <hr>
+                         
+                           
+
+                              
+
+                                <div class="bg-gray py-2 px-3 mt-4">
+                                    <h2 class="mb-0">
+                                ₺ @Html.DisplayFor(x=>x.SalePrice)
+                            </h2>
+                                    <h4 class="mt-0">
+                                <small>Alış Fiyat: ₺ @Html.DisplayFor(x=>x.PurchasePrice) </small>
+                                    </h4>
+                                </div>
+                        <h4 class="mt-3">Enerji Türü <small>Lütfen Seçiniz</small></h4>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-default text-center">
+                                <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                <span class="text-xl">A</span>
+                                <br>
+                              
+                            </label>
+                            <label class="btn btn-default text-center">
+                                <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                <span class="text-xl">A+</span>
+                                <br>
+                               
+                            </label>
+                            <label class="btn btn-default text-center">
+                                <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                <span class="text-xl">A++</span>
+                                <br>
+                                
+                            </label>
+                            <label class="btn btn-default text-center">
+                                <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                <span class="text-xl">A+++</span>
+                                <br>
+                                
+                            </label>
+                        </div>
+
+                                <div class="mt-4">
+                                    <div class="btn btn-primary btn-lg btn-flat">
+                                        <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                                        Sepete Ekle
+                                    </div>
+
+                                    <div class="btn btn-default btn-lg btn-flat">
+                                        <i class="fas fa-heart fa-lg mr-2"></i>
+                                        Favorilere Ekle
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 product-share">
+                                    <a href="#" class="text-gray">
+                                        <i class="fab fa-facebook-square fa-2x"></i>
+                                    </a>
+                                    <a href="#" class="text-gray">
+                                        <i class="fab fa-twitter-square fa-2x"></i>
+                                    </a>
+                                    <a href="#" class="text-gray">
+                                        <i class="fas fa-envelope-square fa-2x"></i>
+                                    </a>
+                                    <a href="#" class="text-gray">
+                                        <i class="fas fa-rss-square fa-2x"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </section>
+            <!-- /.content -->
+  
+        <!-- /.content-wrapper -->
+
+    
+
+   
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>
+
+

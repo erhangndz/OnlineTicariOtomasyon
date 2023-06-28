@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete;
+@model BillItem
+@{
+    ViewData["Title"] = "AddBillItem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Yeni Fatura Kalemi Girişi</h3>
+<br />
+<form method="post">
+
+    <label>Açıklama</label>
+    @Html.TextBoxFor(x=>x.Description,new {@class="form-control"})
+    <br />
+    <label>Adet</label>
+    @Html.TextBoxFor(x=>x.Number,new {@class="form-control"})
+    <br />
+    <label> Birim Fiyat</label>
+    <br />
+    @Html.TextBoxFor(x=>x.UnitPrice,new {@class="form-control"})
+    <br /><br />
+    <label>Toplam Tutar</label>
+    @Html.TextBoxFor(x=>x.Price,new {@class="form-control"})
+    <br />
+    <label>Fatura ID</label>
+    @Html.TextBoxFor(x=>x.BillID,new {@class="form-control"})
+    <br />
+   
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>
+
+
