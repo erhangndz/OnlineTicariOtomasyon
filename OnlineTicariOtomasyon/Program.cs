@@ -34,6 +34,9 @@ builder.Services.AddScoped<IBillService, BillManager>();
 builder.Services.AddScoped<IBillItemDal, EfBillItemDal>();
 builder.Services.AddScoped<IBillItemService, BillItemManager>();
 
+builder.Services.AddScoped<ITodoDal, EfTodoDal>();
+builder.Services.AddScoped<ITodoService, TodoManager>();
+
 
 var app = builder.Build();
 

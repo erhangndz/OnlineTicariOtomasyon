@@ -11,7 +11,7 @@
 
 
 
-<table id="tbl1" class="table table-striped table-bordered dt-responsive nowrap">
+<table id="tbl1" class="table table-hover dt-responsive nowrap">
     <thead>
     <tr>
         <th>#</th>
@@ -98,6 +98,7 @@
 
 
 $('#tbl1').dataTable({
+        "order": [[3, 'ascending']],
         "responsive": true,
         "dom": '<"html5buttons"B>lTfgitp',
         "language": {

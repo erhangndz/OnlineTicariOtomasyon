@@ -10,8 +10,8 @@
 <h3 class="container">Faturalar</h3>
 
 <br />
-<table class="table table-hover">
-
+<table id="tbl5" class="table table-hover dt-responsive nowrap">
+    <thead>
     <tr>
         <th>#</th>
         <th>Seri No</th>
@@ -26,12 +26,13 @@
 
 
     </tr>
-
+    </thead>
+    <tbody>
     @foreach (var item in Model)
     {
         count++;
       
-
+       
         <tr >
             <th>@count</th>
             <td>@item.SerialNumber</td>
@@ -49,8 +50,60 @@
                 <a href="/Bill/BillDetails/@item.BillID" class="btn btn-outline-dark">Detaylar</a>
             </td>
         </tr>
+     
     }
+    </tbody>
 </table>
 <br />
 <a href="/Bill/AddBill/" class="btn btn-dark">Yeni Fatura Girişi</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+
+<script>
+
+
+    $('#tbl5').dataTable({
+        "order": [[3, 'ascending']],
+        "responsive": true,
+        "dom": '<"html5buttons"B>lTfgitp',
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/tr.json"
+        }
+    });
+
+</script>
 
